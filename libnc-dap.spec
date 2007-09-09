@@ -4,10 +4,10 @@
 %define lib_name_d_s    %mklibname nc-dap %{lib_major} -d -s
 
 Name:           libnc-dap
-Summary:        NetCDF interface to DAP-2 from OPeNDAP
 Version:        3.7.0
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
+Summary:        NetCDF interface to DAP-2 from OPeNDAP
 URL:            http://www.opendap.org/
 Source0:        ftp://ftp.unidata.ucar.edu/pub/opendap/source/libnc-dap-%{version}.tar.gz 
 # dncdump and netcdf headers are coverd by a BSD-like license
@@ -38,9 +38,8 @@ NetCDF interface to DAP-2 from OPeNDAP.
 %package -n %{lib_name_d}
 Summary:        Development files and header files from libnc-dap
 Group:          Development/C
-Provides:       %{name}-devel = %{epoch}:%{version}-%{release}
+Provides:       nc-dap-devel = %{epoch}:%{version}-%{release}
 Provides:       %{_lib}%{name}-devel = %{epoch}:%{version}-%{release}
-Provides:       lib%{name}-devel = %{epoch}:%{version}-%{release}
 Requires:       %{lib_name} = %{epoch}:%{version}-%{release}
 Requires:       libdap-devel >= 0:3.7.0
 # for /usr/share/aclocal owning
@@ -53,9 +52,8 @@ will use libnc-dap.
 %package -n %{lib_name_d_s}
 Summary:        Static development files from libnc-dap
 Group:          Development/C
-Provides:       %{name}-static-devel = %{epoch}:%{version}-%{release}
+Provides:       nc-dap-static-devel = %{epoch}:%{version}-%{release}
 Provides:       %{_lib}%{name}-static-devel = %{epoch}:%{version}-%{release}
-Provides:       lib%{name}-static-devel = %{epoch}:%{version}-%{release}
 Requires:       %{lib_name_d} = %{epoch}:%{version}-%{release}
 Requires:       libdap-static-devel >= 0:3.7.0
 
@@ -65,7 +63,7 @@ will use libnc-dap.
 
 %prep
 %setup -q
-%{__rm} -rf netcdf/.svn
+%{__rm} -r netcdf/.svn
 
 %build
 %{configure2_5x} --disable-dependency-tracking
