@@ -5,7 +5,7 @@
 
 Name:           libnc-dap
 Version:        3.7.0
-Release:        %mkrel 3
+Release:        %mkrel 4
 Epoch:          0
 Summary:        NetCDF interface to DAP-2 from OPeNDAP
 URL:            http://www.opendap.org/
@@ -39,7 +39,6 @@ NetCDF interface to DAP-2 from OPeNDAP.
 Summary:        Development files and header files from libnc-dap
 Group:          Development/C
 Provides:       nc-dap-devel = %{epoch}:%{version}-%{release}
-Provides:       %{_lib}%{name}-devel = %{epoch}:%{version}-%{release}
 Requires:       %{lib_name} = %{epoch}:%{version}-%{release}
 Requires:       libdap-devel >= 0:3.7.0
 # for /usr/share/aclocal owning
@@ -53,7 +52,6 @@ will use libnc-dap.
 Summary:        Static development files from libnc-dap
 Group:          Development/C
 Provides:       nc-dap-static-devel = %{epoch}:%{version}-%{release}
-Provides:       %{_lib}%{name}-static-devel = %{epoch}:%{version}-%{release}
 Requires:       %{lib_name_d} = %{epoch}:%{version}-%{release}
 Requires:       libdap-static-devel >= 0:3.7.0
 
