@@ -16,6 +16,7 @@ Group:          System/Libraries
 BuildRequires:  gcc-gfortran
 BuildRequires:  libdap-devel >= 0:3.7.3
 BuildRequires:  libdap-static-devel >= 0:3.7.3
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 The libnc-dap library is a call-for-call replacement for netcdf. It can 
