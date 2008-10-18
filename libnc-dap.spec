@@ -4,12 +4,13 @@
 %define lib_name_d_s    %mklibname nc-dap %{lib_major} -d -s
 
 Name:           libnc-dap
-Version:        3.7.0
-Release:        %mkrel 6
+Version:        3.7.3
+Release:        %mkrel 1
 Epoch:          0
 Summary:        NetCDF interface to DAP-2 from OPeNDAP
 URL:            http://www.opendap.org/
-Source0:        ftp://ftp.unidata.ucar.edu/pub/opendap/source/libnc-dap-%{version}.tar.gz 
+Source0:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz
+Source1:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz.sig
 # dncdump and netcdf headers are coverd by a BSD-like license
 License:        LGPL
 Group:          System/Libraries
