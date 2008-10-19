@@ -11,6 +11,7 @@ Summary:        NetCDF interface to DAP-2 from OPeNDAP
 URL:            http://www.opendap.org/
 Source0:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz
 Source1:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz.sig
+Patch0:         libnc-dap-3.7.3-template.patch
 # dncdump and netcdf headers are coverd by a BSD-like license
 License:        LGPL
 Group:          System/Libraries
@@ -62,6 +63,7 @@ will use libnc-dap.
 
 %prep
 %setup -q
+%patch0 -p1
 %{__rm} -r netcdf/.svn
 
 %build
@@ -98,7 +100,9 @@ will use libnc-dap.
 %defattr(-,root,root,-)
 %{_libdir}/libnc-dap.so
 %{_libdir}/libnc-dap.la
+%{_libdir}/pkgconfig/libnc-dap.pc
 %{_bindir}/ncdap-config
+%{_bindir}/ncdap-config-pkgconfig
 %{_includedir}/libnc-dap/
 %{_datadir}/aclocal/*
 
