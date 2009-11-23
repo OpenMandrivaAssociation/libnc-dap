@@ -4,16 +4,16 @@
 %define lib_name_d_s    %mklibname nc-dap %{lib_major} -d -s
 
 Name:           libnc-dap
-Version:        3.7.3
-Release:        %mkrel 2
+Version:        3.7.4
+Release:        %mkrel 1
 Epoch:          0
 Summary:        NetCDF interface to DAP-2 from OPeNDAP
 URL:            http://www.opendap.org/
 Source0:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz
 Source1:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz.sig
-Patch0:         libnc-dap-3.7.3-template.patch
+Patch1:		libnc-dap-3.7.4-fix-str-fmt.patch
 # dncdump and netcdf headers are coverd by a BSD-like license
-License:        LGPL
+License:        LGPLv2+
 Group:          System/Libraries
 BuildRequires:  gcc-gfortran
 BuildRequires:  libdap-devel >= 0:3.7.3
@@ -63,8 +63,7 @@ will use libnc-dap.
 
 %prep
 %setup -q
-%patch0 -p1
-%{__rm} -r netcdf/.svn
+%patch1 -p0
 
 %build
 %{configure2_5x} --disable-dependency-tracking
