@@ -5,7 +5,7 @@
 
 Name:           libnc-dap
 Version:        3.7.4
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Summary:        NetCDF interface to DAP-2 from OPeNDAP
 URL:            http://www.opendap.org/
