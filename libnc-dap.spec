@@ -5,7 +5,7 @@
 
 Name:           libnc-dap
 Version:        3.7.4
-Release:        %mkrel 2
+Release:        3
 Epoch:          0
 Summary:        NetCDF interface to DAP-2 from OPeNDAP
 URL:            http://www.opendap.org/
@@ -18,7 +18,6 @@ Group:          System/Libraries
 BuildRequires:  gcc-gfortran
 BuildRequires:  libdap-devel >= 0:3.7.3
 BuildRequires:  libdap-static-devel >= 0:3.7.3
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 The libnc-dap library is a call-for-call replacement for netcdf. It can 
@@ -70,21 +69,9 @@ will use libnc-dap.
 %{make}
 
 %install
-%{__rm} -rf %{buildroot}
 %{makeinstall_std} INSTALL="%{__install} -p"
 
 %{__mv} %{buildroot}%{_bindir}/ncdump %{buildroot}%{_bindir}/dncdump
-
-%clean
-%{__rm} -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{lib_name} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{lib_name} -p /sbin/ldconfig
-%endif
 
 %files
 %defattr(-,root,root,-)
@@ -98,7 +85,6 @@ will use libnc-dap.
 %files -n %{lib_name_d}
 %defattr(-,root,root,-)
 %{_libdir}/libnc-dap.so
-%{_libdir}/libnc-dap.la
 %{_libdir}/pkgconfig/libnc-dap.pc
 %{_bindir}/ncdap-config
 %{_bindir}/ncdap-config-pkgconfig
@@ -108,3 +94,48 @@ will use libnc-dap.
 %files -n %{lib_name_d_s}
 %defattr(-,root,root,-)
 %{_libdir}/libnc-dap.a
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0:3.7.4-2mdv2011.0
++ Revision: 609762
+- rebuild
+
+* Mon Nov 23 2009 Funda Wang <fwang@mandriva.org> 0:3.7.4-1mdv2010.1
++ Revision: 469308
+- new version 3.7.4
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Sun Oct 19 2008 David Walluck <walluck@mandriva.org> 0:3.7.3-1mdv2009.1
++ Revision: 295323
+- update file list
+- add template patch
+- 3.7.3
+- fix provides
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Mon Oct 01 2007 Herton Ronaldo Krzesinski <herton@mandriva.com.br> 0:3.7.0-3mdv2008.0
++ Revision: 94080
+- Rebuild because of missing packages on repositories (reported by David
+  Walluck).
+
+* Sun Sep 09 2007 David Walluck <walluck@mandriva.org> 0:3.7.0-2mdv2008.0
++ Revision: 83430
+- fix provides
+- Import libnc-dap
+
+
+
+* Wed Jun 06 2007 David Walluck <walluck@mandriva.org> 0:3.7.0-1mdv2008.0
+- release
