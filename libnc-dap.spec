@@ -8,7 +8,7 @@ Version:        3.7.4
 Release:        3
 Epoch:          0
 Summary:        NetCDF interface to DAP-2 from OPeNDAP
-URL:            http://www.opendap.org/
+URL:            https://www.opendap.org/
 Source0:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz
 Source1:        http://www.opendap.org/pub/source/libnc-dap-%{version}.tar.gz.sig
 Patch1:		libnc-dap-3.7.4-fix-str-fmt.patch
